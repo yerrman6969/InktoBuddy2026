@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Unofficial Inktober 2026 prompt companion: 31 words with Thai/English meanings, word origins, idea starters, checkboxes and notes.">
+<meta property="og:title" content="Inktober 2026 Prompts">
+<meta property="og:description" content="31 prompts with Thai/English meanings, word origins and idea starters.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='%2314161f'/%3E%3C/svg%3E">
+<style>body{margin:0}[hidden]{display:none!important}</style>
+<title>Inktober 2026 Prompts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&amp;family=Anuphan:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap">
+<style>
+/* Layout: one clean column — date + word per line, tap to unfold details */
+:root{
+  --paper:#f6f7fb; --ink:#14161f; --muted:#6a6f82; --line:#e1e4ee; --gray:#b9bdca; --accent:#2340c9; --chip:#eceef6;
+  --f-display:"Dela Gothic One","Anuphan",Impact,sans-serif;
+  --f-body:"Anuphan","Noto Sans Thai",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0f1118; --ink:#eceef5; --muted:#9298ad; --line:#252938; --gray:#4a4f62; --accent:#8ea2ff; --chip:#1f2332; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0f1118; --ink:#eceef5; --muted:#9298ad; --line:#252938; --gray:#4a4f62; --accent:#8ea2ff; --chip:#1f2332; color-scheme:dark}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55}
+.wrap{max-width:720px;margin:0 auto;padding-inline:16px;padding-block:32px 64px}
+header{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:2px solid var(--ink);padding-bottom:12px}
+h1{font-family:var(--f-display);font-weight:400;font-size:clamp(26px,5vw,38px);line-height:1;margin:0}
+h1 span{color:var(--accent)}
+.count{font:500 13px var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.row{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:96px 1fr;align-items:baseline;gap:12px;padding:14px 0}
+summary::-webkit-details-marker{display:none}
+summary:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.date{font:500 12px var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.word{font-family:var(--f-display);font-size:24px;line-height:1.1;transition:color .2s}
+.today .date{color:var(--accent)}
+.row.done .word,.row.done .date{color:var(--gray)}
+.row input{width:22px;height:22px;margin-top:16px;accent-color:var(--gray);cursor:pointer}
+.info{padding:0 0 18px 108px;display:grid;gap:6px;min-width:0}
+.info p{margin:0}
+.th{font-weight:600;color:var(--accent)}
+.en{color:var(--muted)}
+.hist{margin-top:6px;padding:8px 12px;border-left:3px solid var(--line);font-size:14px;display:grid;gap:2px}
+.hist b{font:500 10.5px var(--f-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.hist p{margin:0}.hth{color:var(--muted)}
+ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:7px}
+li{display:grid;grid-template-columns:62px 1fr;gap:8px;font-size:14px;align-items:baseline}
+li i{font:500 10.5px var(--f-mono);font-style:normal;text-transform:uppercase;letter-spacing:.06em;background:var(--chip);border-radius:3px;padding:2px 0;text-align:center}
+.note{width:100%;box-sizing:border-box;margin-top:10px;min-height:64px;resize:vertical;font:15px/1.5 var(--f-body);color:var(--ink);background:var(--paper);border:1px dashed var(--muted);border-radius:4px;padding:8px 10px}
+.note:focus{outline:none;border-style:solid;border-color:var(--accent)}
+.has-note .word::after{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-left:8px;vertical-align:middle}
+footer{margin-top:28px;color:var(--muted);font-size:12.5px}
+@media (max-width:520px){summary{grid-template-columns:1fr;gap:2px}.info{padding-left:0}}
+@media (prefers-reduced-motion:reduce){.word{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header><h1>INKTOBER <span>2026</span></h1><span class="count" id="count">0 / 31</span></header>
+  <main id="list"></main>
+  <footer>Unofficial fan-made companion, not affiliated with Inktober®. Prompt words © Inktober (@inktober · #inktober2026). Your ticks and notes stay in this browser only.</footer>
+</div>
+
+<script>
+const P=[
+["Apple","A fruit; a symbol of temptation, knowledge and gravity.","แอปเปิล ผลไม้ที่เป็นสัญลักษณ์ของการล่อลวง ความรู้ และแรงโน้มถ่วง",[
+ ["Idiom","“The apple of my eye” — someone cherished · แก้วตาดวงใจ"],
+ ["Context","Newton's apple bonks a thinker on the head: Eureka!"],
+ ["Pun","“An apple a day keeps the doctor away” — draw a doctor fleeing an apple"],
+ ["Meme","The fairy-tale poisoned apple · แอปเปิลอาบยาพิษ"]]],
+["Relic","An object surviving from the past, often sacred or historic.","วัตถุโบราณ ของศักดิ์สิทธิ์หรือของเก่าที่หลงเหลือจากอดีต",[
+ ["Thai","พระเครื่อง / amulets as everyday relics"],
+ ["Idiom","“A relic of a bygone era” · ของตกยุค"],
+ ["Meme","Archaeologists in 3026 digging up a smartphone"],
+ ["Pun","Floppy disk shrine: the “save icon” relic"]]],
+["Miniature","A very small copy of something bigger.","ขนาดจิ๋ว ย่อส่วน",[
+ ["Thai","“เล็กพริกขี้หนู” — small but fierce"],
+ ["Context","A tiny world on a fingertip, tilt-shift style"],
+ ["Pun","Mini-ature: a ‘mini’ creature"],
+ ["Meme","“smol” — the internet word for tiny and cute"]]],
+["Cactus","A spiny desert plant that stores water.","กระบองเพชร พืชทะเลทรายมีหนาม เก็บน้ำได้ดี",[
+ ["Thai","“ปากร้ายใจดี” — prickly outside, soft inside"],
+ ["Pun","Cactus hug: “I'm a little prickly today”"],
+ ["Context","Lone cactus in a cowboy standoff at noon"],
+ ["Meme","The plant parent who even killed a cactus"]]],
+["Smack","A sharp, loud slap or hit.","ตบ ฟาดเสียงดังฉาด",[
+ ["Context","Comic SFX: make the lettering “SMACK!” the hero"],
+ ["Idiom","“Smack dab in the middle” · ตรงกลางเป๊ะ"],
+ ["Idiom","“Smack talk” — trash talk · พูดข่ม"],
+ ["Thai","Slapping a mosquito on your own face ฉาด!"]]],
+["Ogre","A large, ugly, man-eating giant of folklore.","ยักษ์กินคน ในนิทานพื้นบ้าน",[
+ ["Thai","ยักษ์ทวารบาล guardian giants at temple gates"],
+ ["Pun","Ogre-achiever (overachiever)"],
+ ["Idiom","“Gentle giant” · ยักษ์ใจดี"],
+ ["Meme","The Monday-morning ogre before coffee"]]],
+["Panic","Sudden, overwhelming fear.","ตื่นตระหนก ลนลาน",[
+ ["Thai","“ไฟลนก้น” — fire under your butt"],
+ ["Context","The artist at 11:58 pm before the post deadline"],
+ ["Pun","Pan-ic: a frying pan in full panic"],
+ ["Meme","Calm face, internal screaming"]]],
+["Stinky","Having a strong, bad smell.","เหม็น กลิ่นแรง",[
+ ["Thai","Durian: king of fruits, banned on trains and in hotels"],
+ ["Idiom","“Something smells fishy” · มีลับลมคมใน"],
+ ["Pun","Stinky cheese: a smell you can see"],
+ ["Meme","The gym bag forgotten for a week"]]],
+["Ram","A male sheep with curled horns; also to hit hard.","แกะตัวผู้ / พุ่งชน (และ RAM หน่วยความจำคอมพิวเตอร์)",[
+ ["Pun","A sheep built from memory chips: “Download more RAM”"],
+ ["Context","A battering ram at the castle gate"],
+ ["Idiom","“Ram it home” — repeat until it sticks · ย้ำจนเข้าหัว"],
+ ["Context","Aries, the ram of the zodiac · ราศีเมษ"]]],
+["Mystical","Spiritual, magical, beyond understanding.","ลึกลับ เหนือธรรมชาติ ขลัง",[
+ ["Thai","ยันต์ sacred tattoos and ancient geometry"],
+ ["Idiom","“Works in mysterious ways”"],
+ ["Meme","A fortune teller reading your phone's screen time"],
+ ["Pun","Myst-ical: a creature made of fog"]]],
+["Rescue","Saving someone from danger.","ช่วยเหลือ กู้ภัย",[
+ ["Thai","มูลนิธิกู้ภัย volunteers racing on motorbikes"],
+ ["Idiom","“Knight in shining armor” · อัศวินม้าขาว"],
+ ["Pun","Res-cue: a pool cue saving a ball from the pocket"],
+ ["Meme","The cat stuck up the tree, again"]]],
+["Toss","To throw lightly; to flip a coin.","โยน ปา โยนเหรียญ",[
+ ["Idiom","“A toss-up” — fifty-fifty · หัวหรือก้อย"],
+ ["Idiom","“Toss and turn” — a sleepless night · นอนพลิกไปมา"],
+ ["Context","Pizza dough spinning in the air"],
+ ["Meme","Bouquet toss, and everyone dodges"]]],
+["Flimsy","Weak and easily broken; a thin excuse.","บอบบาง ไม่แข็งแรง / ข้ออ้างฟังไม่ขึ้น",[
+ ["Thai","“แก้ตัวน้ำขุ่นๆ” — a flimsy excuse"],
+ ["Context","A paper umbrella in a Bangkok monsoon"],
+ ["Idiom","“House of cards” · บ้านไพ่"],
+ ["Meme","Flat-pack furniture with screws left over"]]],
+["Lady","A polite word for a woman; a woman of manners.","สุภาพสตรี คุณผู้หญิง",[
+ ["Idiom","“Lady Luck” — fortune personified · เทพีแห่งโชค"],
+ ["Pun","A ladybug in a ballgown"],
+ ["Thai","“กุลสตรี / แม่ศรีเรือน” — the ideal Thai lady"],
+ ["Meme","The cat lady and her thirty cats"]]],
+["Hooray","A shout of joy.","ไชโย เย่!",[
+ ["Pun","Hip hip hooray: cheering hippos"],
+ ["Idiom","“One last hurrah” · ครั้งสุดท้ายก่อนลา"],
+ ["Context","Graduation caps thrown into the sky"],
+ ["Meme","Friday, 5 pm"]]],
+["Gangly","Tall, thin and awkward in the limbs.","ผอมสูงเก้งก้าง",[
+ ["Thai","“ผอมเป็นไม้เสียบผี” — skinny as a ghost-stake"],
+ ["Context","A newborn giraffe on wobbly legs"],
+ ["Idiom","“All arms and legs”"],
+ ["Pun","Gang-ly: a gang of stick figures"]]],
+["Contraption","A strange, complicated machine.","สิ่งประดิษฐ์กลไกพิลึก",[
+ ["Context","A chain-reaction machine just to butter toast"],
+ ["Thai","DIY street-food motorbike stalls · ภูมิปัญญาชาวบ้าน"],
+ ["Pun","Contra-ption: a machine that does the opposite"],
+ ["Meme","Over-engineered fix for a tiny problem"]]],
+["Flightless","Unable to fly, like a penguin or ostrich.","บินไม่ได้",[
+ ["Idiom","“Clip someone's wings” · ตัดปีก"],
+ ["Pun","Flight-less: a cancelled flight at the airport"],
+ ["Context","Dodo, kiwi, penguin, chicken"],
+ ["Meme","A chicken who believes it's an eagle"]]],
+["Confused","Unable to understand; mixed up.","สับสน งุนงง",[
+ ["Thai","“งงเป็นไก่ตาแตก” — confused as a blinded chicken"],
+ ["Context","A tourist lost in a Bangkok soi maze"],
+ ["Pun","Con-fused: an electrical fuse that's lost"],
+ ["Meme","Math equations floating around a puzzled head"]]],
+["Lounge","To relax lazily; a comfy room.","นั่งเล่นเอกเขนก / ห้องรับรอง",[
+ ["Thai","“นอนตีพุง” — lying around patting your belly"],
+ ["Pun","Lounge lizard: a gecko (ตุ๊กแก) in a bathrobe"],
+ ["Context","The airport lounge before a long flight"],
+ ["Meme","A cat melting in a sunbeam"]]],
+["Hero","A brave person admired for great deeds.","ฮีโร่ วีรบุรุษ",[
+ ["Thai","“ปิดทองหลังพระ” — the unsung hero"],
+ ["Context","Everyday heroes: the street vendor, the nurse, the rescue volunteer"],
+ ["Pun","A hero sandwich"],
+ ["Meme","“Not all heroes wear capes”"]]],
+["Beacon","A guiding light or signal.","ประภาคาร สัญญาณนำทาง",[
+ ["Idiom","“A beacon of hope” · แสงสว่างปลายอุโมงค์"],
+ ["Context","A lighthouse in a storm, or signal fires on hilltops"],
+ ["Pun","Bacon beacon: breakfast lighthouse"],
+ ["Meme","A sea of phone flashlights at a concert"]]],
+["Dapper","Neat and stylish, usually of a man.","แต่งตัวเนี้ยบ ภูมิฐาน",[
+ ["Idiom","“Dressed to the nines” · แต่งหล่อเฟี้ยว"],
+ ["Context","A secret agent in a tuxedo at a gala"],
+ ["Pun","Dapper-dog: a corgi in a bow tie"],
+ ["Context","1920s gentleman with cane and pocket watch"]]],
+["Bake","To cook with dry heat in an oven.","อบ ขนมอบ",[
+ ["Idiom","“Half-baked idea” · ความคิดดิบๆ"],
+ ["Thai","Baking under the Bangkok sun: “ร้อนจนสุก”"],
+ ["Context","ขนมหม้อแกง fresh from the tray"],
+ ["Meme","Cake: expectation vs reality"]]],
+["Fracture","A break or crack.","แตกร้าว กระดูกหัก",[
+ ["Context","Kintsugi: mending cracks with gold"],
+ ["Thai","“ร้าวเกินกว่าจะประสาน” — beyond repair"],
+ ["Pun","Frac-ture: cracks that become fractals"],
+ ["Meme","The spiderweb phone screen"]]],
+["Zip","A zipper; to move fast; nothing at all.","ซิป / พุ่งเร็ว / ศูนย์",[
+ ["Idiom","“Zip your lip” · รูดซิปปาก"],
+ ["Context","A zip-line through the jungle canopy"],
+ ["Pun","A .zip file: a squashed, compressed character"],
+ ["Meme","“Zip, zero, nada” — an empty wallet"]]],
+["Dumb","Stupid; or unable to speak.","โง่ทึ่ม / เป็นใบ้",[
+ ["Thai","“อึ้งกิมกี่” — dumbfounded"],
+ ["Pun","Dumb-bell: a bell with no idea"],
+ ["Context","Smart phone, dumb owner"],
+ ["Meme","Pushing a door marked PULL"]]],
+["Trophy","A prize cup for winning.","ถ้วยรางวัล",[
+ ["Idiom","“Raise the cup” · ชูถ้วยแชมป์"],
+ ["Pun","A trophy collecting dust, not glory"],
+ ["Context","A tiny trophy for the smallest win of the day"],
+ ["Meme","Everyone gets a participation trophy"]]],
+["Tusk","A long pointed tooth of an elephant, walrus or boar.","งา (ช้าง วอลรัส หมูป่า)",[
+ ["Thai","“งาช้างไม่งอกจากปากสุนัข” — ivory doesn't grow from a dog's mouth"],
+ ["Context","The Thai elephant, national animal · ช้างไทย"],
+ ["Pun","“Tusk tusk” (tsk tsk): a disapproving walrus"],
+ ["Meme","A walrus with a fancy mustache"]]],
+["Cookie","A small sweet baked biscuit.","คุกกี้ ขนมกรอบ",[
+ ["Idiom","“That's the way the cookie crumbles” · ชีวิตก็เป็นแบบนี้"],
+ ["Pun","“Accept all cookies?” — a pop-up made of real cookies"],
+ ["Context","A fortune cookie with a strange fortune"],
+ ["Idiom","“Smart cookie / tough cookie”"]]],
+["Flex","To bend a muscle; to show off.","เบ่งกล้าม / อวด",[
+ ["Thai","“ขิง” — Thai slang for flexing"],
+ ["Context","Day 31: flex all 31 of your drawings"],
+ ["Pun","Flex-ible: a yoga master tied in knots"],
+ ["Meme","The “humble” flex photo"]]]
+];
+const H=[
+["Old English æppel. It once meant any fruit at all.","มาจากภาษาอังกฤษโบราณ æppel เดิมใช้เรียกผลไม้ทุกชนิด"],
+["Latin reliquiae, “remains”, from relinquere, “to leave behind”. First used for the remains of saints.","จากละติน reliquiae แปลว่า “สิ่งที่หลงเหลือ” เดิมหมายถึงอัฐิหรือของของนักบุญ"],
+["Italian miniatura, from Latin miniare, “to paint with red lead”, as in old illuminated manuscripts. The ‘small’ meaning came later.","จากอิตาลี miniatura รากละติน miniare คือการระบายสีแดงในหนังสือภาพเขียนมือโบราณ ความหมาย “ย่อส่วน” มาทีหลัง"],
+["Greek kaktos, a spiny plant of Sicily. Linnaeus gave the name to the desert plants in 1753.","จากกรีก kaktos พืชมีหนามในซิซิลี ลินเนียสนำมาตั้งชื่อพืชทะเลทรายในปี 1753"],
+["Imitates the sound itself. In the 1500s it meant a loud kiss, later a slap.","เป็นคำเลียนเสียง ราวศตวรรษที่ 16 หมายถึงการจูบเสียงดัง ต่อมาจึงหมายถึงการตบ"],
+["French ogre, made famous by Charles Perrault's fairy tales (1697). Origin unclear; maybe from Orcus, Roman god of the underworld.","จากฝรั่งเศส ogre แพร่หลายจากนิทานของชาร์ล แปร์โรลต์ (1697) อาจมาจาก Orcus เทพแห่งยมโลกของโรมัน"],
+["Greek panikon, “of Pan”. The god Pan's shout was said to cause sudden terror in herds and people.","จากกรีก panikon “แห่งเทพแพน” เชื่อกันว่าเสียงตะโกนของแพนทำให้คนและสัตว์ตื่นกลัวทันที"],
+["From stink, Old English stincan, which once meant any smell, good or bad. ‘Stinky’ is a later, playful form.","จาก stink (อังกฤษโบราณ stincan) เดิมหมายถึงกลิ่นทั่วไป ไม่ว่าหอมหรือเหม็น"],
+["Old English ramm, male sheep. ‘To ram’ comes from its butting. Computer RAM (Random Access Memory) is an unrelated acronym.","จากอังกฤษโบราณ ramm แกะตัวผู้ กริยา “พุ่งชน” มาจากท่าขวิดของมัน ส่วน RAM คอมพิวเตอร์เป็นตัวย่อ ไม่เกี่ยวกัน"],
+["Greek mystikos, “secret”, from mystes, an initiate into sacred rites, and myein, “to close the eyes or lips”.","จากกรีก mystikos “ลับ” มาจาก myein แปลว่า “ปิดตาหรือปิดปาก” ของผู้เข้าพิธีลับ"],
+["Old French rescourre, from Latin re- + excutere, “to shake off, drive away”.","จากฝรั่งเศสโบราณ rescourre รากละติน excutere “สะบัดออก ขับไล่”"],
+["1500s, origin uncertain; possibly Scandinavian (Norwegian tossa, “to scatter”).","ศตวรรษที่ 16 ที่มาไม่แน่ชัด อาจมาจากภาษาสแกนดิเนเวีย tossa “โปรย กระจาย”"],
+["Early 1700s, origin uncertain; perhaps from ‘film’. Later also slang for thin copy paper.","ต้นศตวรรษที่ 18 ที่มาไม่แน่ชัด อาจมาจาก film (ฟิล์มบาง) ต่อมาใช้เรียกกระดาษบางด้วย"],
+["Old English hlǣfdige, literally “loaf-kneader”: the woman of the house who made the bread.","จากอังกฤษโบราณ hlǣfdige แปลตรงตัวว่า “ผู้นวดขนมปัง” คือแม่บ้านผู้ดูแลครัวเรือน"],
+["1680s, a form of ‘hurrah’ and ‘huzzah’, likely an old sailors' cheer.","ราวทศวรรษ 1680 เป็นรูปหนึ่งของ hurrah/huzzah น่าจะมาจากเสียงโห่ของกะลาสี"],
+["From ‘gangling’, related to Old English gangan, “to go, walk”.","มาจาก gangling เกี่ยวกับอังกฤษโบราณ gangan “เดิน”"],
+["Early 1800s American slang, probably a blend of ‘contrive’, ‘trap’ and ‘invention’.","สแลงอเมริกันต้นศตวรรษที่ 19 น่าจะผสมจาก contrive + trap + invention"],
+["Flight (Old English flyht) + -less. Became common in 1800s natural history to describe birds.","flight + -less ใช้แพร่หลายในงานธรรมชาติวิทยาศตวรรษที่ 19 เพื่อบรรยายนก"],
+["Latin confusus, from confundere, “to pour together, mix up”.","จากละติน confundere “เทรวมกัน ปนเป”"],
+["1500s, origin uncertain; maybe from old French longis, a slow, lazy person. ‘Lounge room’ dates from the late 1800s.","ศตวรรษที่ 16 ที่มาไม่แน่ชัด อาจมาจากฝรั่งเศสโบราณ longis คนเชื่องช้าขี้เกียจ"],
+["Greek hērōs, a demigod or legendary warrior-protector.","จากกรีก hērōs กึ่งเทพหรือนักรบในตำนานผู้ปกป้อง"],
+["Old English bēacen, “sign, signal”. Related to ‘beckon’.","จากอังกฤษโบราณ bēacen “สัญญาณ” เป็นญาติกับคำว่า beckon (กวักมือเรียก)"],
+["Middle Dutch dapper, “brave, strong” (German tapfer still means brave). English shifted it to ‘neat and smart’.","จากดัตช์ยุคกลาง dapper “กล้าหาญ” (เยอรมัน tapfer) อังกฤษเปลี่ยนความหมายเป็น “แต่งตัวดี”"],
+["Old English bacan; a cousin of German backen.","จากอังกฤษโบราณ bacan ญาติกับเยอรมัน backen"],
+["Latin fractura, from frangere, “to break”. Same root as fraction and fragile.","จากละติน frangere “หัก” รากเดียวกับ fraction และ fragile"],
+["1850s, imitating a whizzing sound. ‘Zipper’ began as a 1920s brand name for rubber boots.","ทศวรรษ 1850 เลียนเสียงฟิ้ว คำว่า zipper เริ่มจากชื่อการค้ารองเท้ายางในทศวรรษ 1920"],
+["Old English dumb, “unable to speak”. The ‘stupid’ sense came in 1800s America, via German dumm.","จากอังกฤษโบราณ dumb “พูดไม่ได้” ความหมาย “โง่” มาในอเมริกาศตวรรษที่ 19 ผ่านเยอรมัน dumm"],
+["Greek tropaion, a monument where the enemy turned to flee (tropē, “a turning”).","จากกรีก tropaion อนุสรณ์ตรงจุดที่ข้าศึก “หันหลังหนี” (tropē = การหัน)"],
+["Old English tusc, a long pointed tooth; possibly related to ‘tooth’.","จากอังกฤษโบราณ tusc ฟันยาวแหลม อาจเกี่ยวข้องกับคำว่า tooth"],
+["Dutch koekje, “little cake”, brought to America by Dutch settlers. Browser cookies (1994) came from the coders' term ‘magic cookie’.","จากดัตช์ koekje “เค้กชิ้นเล็ก” ส่วนคุกกี้ในเบราว์เซอร์ (1994) มาจากศัพท์โปรแกรมเมอร์ magic cookie"],
+["Latin flexus, from flectere, “to bend”. ‘Show off’ came from bodybuilding and spread through 1990s hip-hop.","จากละติน flectere “งอ” ความหมาย “อวด” มาจากการเบ่งกล้ามและแพร่หลายผ่านฮิปฮอปยุค 90"]];
+const KEY="inktober2026-done";
+let done=new Set();
+try{done=new Set(JSON.parse(localStorage.getItem(KEY)||"[]"))}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify([...done]))}catch(e){}};
+const now=new Date(), today=(now.getFullYear()===2026&&now.getMonth()===9)?now.getDate():0;
+const wd=d=>new Date(2026,9,d).toLocaleDateString("en-GB",{weekday:"short"});
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const NKEY="inktober2026-notes";
+let notes={};
+try{notes=JSON.parse(localStorage.getItem(NKEY)||"{}")}catch(e){}
+const list=document.getElementById("list");
+list.innerHTML=P.map(([w,en,th,ideas],i)=>{const d=i+1;return `
+<div class="row${d===today?" today":""}" data-d="${d}">
+ <details><summary><span class="date">${wd(d)} ${String(d).padStart(2,"0")} Oct</span><span class="word">${w.toUpperCase()}</span></summary>
+  <div class="info"><p class="th">${esc(th)}</p><p class="en">${esc(en)}</p>
+  <div class="hist"><b>History · ที่มา</b><p>${esc(H[i][0])}</p><p class="hth">${esc(H[i][1])}</p></div>
+  <ul>${ideas.map(([t,x])=>`<li><i class="${t}">${t}</i><span>${esc(x)}</span></li>`).join("")}</ul>
+  <textarea class="note" id="n${d}" data-n="${d}" placeholder="Notes" aria-label="Note for ${w}"></textarea></div>
+ </details>
+ <input type="checkbox" id="c${d}" data-d="${d}" aria-label="Done: ${w}">
+</div>`}).join("");
+function render(){
+  list.querySelectorAll(".row").forEach(r=>{const on=done.has(+r.dataset.d);r.classList.toggle("done",on);r.querySelector("input").checked=on});
+  document.getElementById("count").textContent=done.size+" / 31";
+}
+list.addEventListener("change",e=>{const d=+e.target.dataset.d;if(!d)return;e.target.checked?done.add(d):done.delete(d);save();render()});
+list.querySelectorAll(".note").forEach(t=>{const d=t.dataset.n;t.value=notes[d]||"";t.closest(".row").classList.toggle("has-note",!!t.value.trim())});
+list.addEventListener("input",e=>{const d=e.target.dataset.n;if(!d)return;const v=e.target.value;
+  v.trim()?notes[d]=v:delete notes[d];try{localStorage.setItem(NKEY,JSON.stringify(notes))}catch(x){}
+  e.target.closest(".row").classList.toggle("has-note",!!v.trim())});
+render();
+</script>
+
+</body>
+</html>
